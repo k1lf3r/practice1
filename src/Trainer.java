@@ -1,12 +1,11 @@
-public class Trainer {
-
-    // Private fields
+class Trainer {
+    // 1. PRIVATE FIELDS
     private int trainerId;
     private String name;
     private String specialization;
     private int experience;
 
-    // Constructor with parameters
+    // 2. CONSTRUCTOR
     public Trainer(int trainerId, String name, String specialization, int experience) {
         this.trainerId = trainerId;
         this.name = name;
@@ -14,49 +13,19 @@ public class Trainer {
         this.experience = experience;
     }
 
-    // Default constructor
-    public Trainer() {
-        this.trainerId = 0;
-        this.name = "Unknown";
-        this.specialization = "General";
-        this.experience = 0;
-    }
+    // 4. GETTERS
+    public int getTrainerId() { return trainerId; }
+    public String getName() { return name; }
+    public String getSpecialization() { return specialization; }
+    public int getExperience() { return experience; }
 
-    // Getters
-    public int getTrainerId() {
-        return trainerId;
-    }
+    // 5. SETTERS
+    public void setTrainerId(int trainerId) { this.trainerId = trainerId; }
+    public void setName(String name) { this.name = name; }
+    public void setSpecialization(String specialization) { this.specialization = specialization; }
+    public void setExperience(int experience) { this.experience = experience; }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getSpecialization() {
-        return specialization;
-    }
-
-    public int getExperience() {
-        return experience;
-    }
-
-    // Setters
-    public void setTrainerId(int trainerId) {
-        this.trainerId = trainerId;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setSpecialization(String specialization) {
-        this.specialization = specialization;
-    }
-
-    public void setExperience(int experience) {
-        this.experience = experience;
-    }
-
-    // Additional methods
+    // 6. ADDITIONAL METHOD
     public boolean isExperienced() {
         return experience >= 5;
     }
@@ -65,10 +34,9 @@ public class Trainer {
         return specialization.equals(type);
     }
 
-    // toString
+    // 7. toString()
     @Override
     public String toString() {
-        return "Trainer [id=" + trainerId + ", name=" + name +
-                ", specialization=" + specialization + ", experience=" + experience + "]";
+        return "Trainer [id=" + trainerId + ", name=" + name + ", spec=" + specialization + ", exp=" + experience + "]";
     }
 }
