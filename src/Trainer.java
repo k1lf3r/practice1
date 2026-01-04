@@ -1,38 +1,30 @@
-public class Trainer {
 
-    private int trainerId;
-    private String name;
+public class Trainer extends Person {
+
     private String specialization;
     private int experience;
 
-    public Trainer(int trainerId, String name, String specialization, int experience) {
-        if (trainerId <= 0) throw new IllegalArgumentException();
-        if (experience < 0) throw new IllegalArgumentException();
+    public Trainer(int id, String name, int age, String specialization, int experience) {
+        super(id, name, age);
+        if (experience < 0) throw new IllegalArgumentException("Experience cannot be negative");
 
-        this.trainerId = trainerId;
-        this.name = name;
         this.specialization = specialization;
         this.experience = experience;
     }
 
-    public int getTrainerId() { return trainerId; }
-    public String getName() { return name; }
-    public String getSpecialization() { return specialization; }
-    public int getExperience() { return experience; }
-
-    public boolean isExperienced() {
-        return experience >= 5;
-    }
-
-    public boolean canTeach(String type) {
-        return specialization.equalsIgnoreCase(type);
+    @Override
+    public String getRole() {
+        return "Trainer";
     }
 
     @Override
-    public String toString() {
-        return "Trainer [ID=" + trainerId +
-                ", Name=" + name +
-                ", Spec=" + specialization +
-                ", Exp=" + experience + "]";
+    public String getInfo() {
+        return "[TRAINER] " + super.getInfo()
+                + " | spec: " + specialization
+                + " | exp: " + experience;
+    }
+
+    public boolean isExperienced() {
+        return experience >= 5;
     }
 }
